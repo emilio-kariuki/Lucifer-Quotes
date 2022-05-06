@@ -8,13 +8,41 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Obx(() =>  Text(" Name is ${myController.obj.name}")),
-      ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        myController.toUpperCase();
-      }),
-    );
+    return GetX<MyController>(builder: (controller) {
+      return Scaffold(
+        // ignore: unnecessary_brace_in_string_interps
+        appBar: AppBar(
+            leading: Text("${controller.item.value}"), title: Text("Name")),
+        body: Column(children: [
+          Expanded(
+            child: GetX<MyController>(builder: (controller) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.builder(
+                    itemCount: controller.product.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                          child: Column(
+                        children: [
+                          Text(
+                              "The name of the product is: ${controller.product[index].name}"),
+                          Text(
+                              "The price of product is: ${controller.product[index].price}"),
+                          Text(
+                              'The location of the product is: ${controller.product[index].location}')
+                        ],
+                      ));
+                    }),
+              );
+            }),
+          ),
+        ]),
+        floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed: () {
+              myController.addItem();
+            }),
+      );
+    });
   }
 }

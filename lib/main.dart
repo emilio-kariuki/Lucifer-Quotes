@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_controller/view/Home.dart';
 
 void main() {
-  runApp(const MaterialApp());
+  runApp( MaterialApp(
+    home: Home(),
+    debugShowCheckedModeBanner: false,  
+  ));
 }
 

@@ -1,6 +1,7 @@
-import "package:get/get.dart";
+class Product {
+  var name;
+  var price;
+  var location;
 
-class Students {
-  var name = "Emilio".obs;
-  var age = 25.obs;
+  Product({this.name, this.price, this.location});
 }
