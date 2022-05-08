@@ -22,11 +22,20 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                     itemCount: controller.product.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                          leading: Icon(Icons.camera, size: 35),
-                          title: Text("${controller.product[index].quote}"),
-                          subtitle: Text(
-                              "Author: ${controller.product[index].author}"));
+                      return Padding(
+                        padding: const EdgeInsets.only(top:5),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.black,width:1)
+                          ),
+                          child: ListTile(
+                              leading: Icon(Icons.person, size: 35,color: Colors.blue),
+                              title: Text("${controller.product[index].quote}"),
+                              subtitle: Text(
+                                  "Author: ${controller.product[index].author}")),
+                        ),
+                      );
                     }),
               );
             }),
