@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
       return Scaffold(
         // ignore: unnecessary_brace_in_string_interps
         appBar: AppBar(
-            leading: Text("${controller.item.value}"), title: Text("Name")),
+            leading: Text("${controller.item.value}"), title: const Text("Name")),
         body: Column(children: [
           Expanded(
             child: GetX<MyController>(builder: (controller) {
@@ -25,11 +25,10 @@ class Home extends StatelessWidget {
                           child: Column(
                         children: [
                           Text(
-                              "The name of the product is: ${controller.product[index].name}"),
+                              "The name of the product is: ${controller.product[index].quote}"),
                           Text(
-                              "The price of product is: ${controller.product[index].price}"),
-                          Text(
-                              'The location of the product is: ${controller.product[index].location}')
+                              "The author is: ${controller.product[index].author}"),
+                          
                         ],
                       ));
                     }),
