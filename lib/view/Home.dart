@@ -12,7 +12,8 @@ class Home extends StatelessWidget {
       return Scaffold(
         // ignore: unnecessary_brace_in_string_interps
         appBar: AppBar(
-            leading: Text("${controller.item.value}"), title: const Text("Name")),
+            leading: Text("${controller.item.value}"),
+            title: const Text("Name")),
         body: Column(children: [
           Expanded(
             child: GetX<MyController>(builder: (controller) {
@@ -21,16 +22,11 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                     itemCount: controller.product.length,
                     itemBuilder: (context, index) {
-                      return Card(
-                          child: Column(
-                        children: [
-                          Text(
-                              "The name of the product is: ${controller.product[index].quote}"),
-                          Text(
-                              "The author is: ${controller.product[index].author}"),
-                          
-                        ],
-                      ));
+                      return ListTile(
+                          leading: Icon(Icons.camera, size: 35),
+                          title: Text("${controller.product[index].quote}"),
+                          subtitle: Text(
+                              "Author: ${controller.product[index].author}"));
                     }),
               );
             }),

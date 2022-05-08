@@ -12,7 +12,7 @@ class RemoteServices {
     if (response.statusCode == 200) {
       print("Information fetched successfully");
       var json = response.body;
-      print(jsonDecode(json));
+      // print(jsonDecode(json));
       return welcomeFromJson(json);
     } else {
       throw Exception("Failed to load products");
