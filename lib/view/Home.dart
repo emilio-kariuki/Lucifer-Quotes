@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:get_controller/controller/get_controller.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -8,12 +9,12 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<MyController>(builder: (controller) {
       return Scaffold(
         // ignore: unnecessary_brace_in_string_interps
         appBar: AppBar(
-            leading: Text("${controller.item.value}"),
-            title: const Text("Name")),
+          backgroundColor: Colors.red,
+          elevation: 0,
+            title: const Text("Lucifer Quotes")),
         body: Column(children: [
           Expanded(
             child: GetX<MyController>(builder: (controller) {
@@ -30,10 +31,10 @@ class Home extends StatelessWidget {
                             border: Border.all(color: Colors.black,width:1)
                           ),
                           child: ListTile(
-                              leading: Icon(Icons.person, size: 35,color: Colors.blue),
+                              leading: const Icon(Icons.person, size: 35,color: Colors.blue),
                               title: Text("${controller.product[index].quote}"),
                               subtitle: Text(
-                                  "Author: ${controller.product[index].author}")),
+                                  "Author: ${controller.product[index].author}",style: GoogleFonts.redressed(color: Colors.red,fontSize:16))),
                         ),
                       );
                     }),
@@ -47,6 +48,5 @@ class Home extends StatelessWidget {
               myController.addItem();
             }),
       );
-    });
   }
 }
