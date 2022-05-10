@@ -92,7 +92,7 @@ class Home extends StatelessWidget {
                                   // shape: BoxShape.circle
                                 ),
                                 child: CircleAvatar(
-                                  radius: 55,
+                                  radius: 56,
                                   backgroundImage:
                                       AssetImage(assets[randomIndex]),
                                 ),
