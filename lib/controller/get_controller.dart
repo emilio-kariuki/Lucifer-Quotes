@@ -21,7 +21,7 @@ class MyController extends GetxController {
     } catch (e) {
       print(e);
     } finally {
-      isLoading(false);
+       isLoading(false);
     }
   }
 
