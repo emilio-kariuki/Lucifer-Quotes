@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
     imagePath = assets[0];
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 14, 9, 57),
+      backgroundColor: const Color.fromARGB(255, 14, 9, 57),
       // ignore: unnecessary_brace_in_string_interps
       appBar: AppBar(
           leading: Padding(
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
               backgroundImage: AssetImage(assets[randomIndex]),
             ),
           ),
-          backgroundColor: Color.fromARGB(255, 4, 39, 68),
+          backgroundColor: const Color.fromARGB(255, 4, 39, 68),
           elevation: 0,
           title: const Text("Lucifer Quotes")),
       body: Column(children: [
@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
             return Visibility(
               visible: controller.isLoading.value,
               child:  Center(child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: JumpingDotsProgressIndicator(
                   milliseconds: 200,
                   numberOfDots: 4,

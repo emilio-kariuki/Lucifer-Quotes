@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.get_controller">
+    package="com.quotes.lucifer">
    <application
-        android:label="get_controller"
+        android:label="Lucifer"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
