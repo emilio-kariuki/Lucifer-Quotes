@@ -14,10 +14,8 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-   Future.delayed(const Duration(seconds: 4), () {
-      //getLocation();
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: ((context) => Home())));
+    Future.delayed(Duration(seconds: 2), () {
+      Get.to(Home());
     });
   }
 
