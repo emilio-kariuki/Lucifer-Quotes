@@ -1,25 +1,30 @@
 import "package:flutter/material.dart";
 import "package:get/get.dart";
-import 'package:get_controller/view/Home.dart';
 
-class Splash extends StatelessWidget {
-  const Splash({Key? key}) : super(key: key);
+import 'Home.dart';
+
+class Splash extends StatefulWidget {
+  Splash({Key? key}) : super(key: key);
+
+  @override
+  State<Splash> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2), () {
-      Get.to(Home());
+    super.initState();
+    Future.delayed(Duration(milliseconds: 250), () {
+      Get.offAll(Home());
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(image: Image.asset("assets/t18.jpeg").image)
-          ),
-        ),
+        child: Icon(Icons.place,size: 60, color: Colors.white),
       ),
     );
   }
