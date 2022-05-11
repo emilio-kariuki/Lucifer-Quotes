@@ -32,9 +32,33 @@ class Home extends StatelessWidget {
     'assets/t19.jpeg',
     'assets/t20.jpeg',
   ];
+  static List<String> assetz = [
+    'assets/luciffer.jpeg',
+    'assets/here.jpeg',
+    'assets/t1.jpeg',
+    'assets/t2.jpeg',
+    'assets/t3.jpeg',
+    'assets/t4.jpeg',
+    'assets/t5.jpeg',
+    'assets/t6.jpeg',
+    'assets/t7.jpeg',
+    'assets/t8.jpeg',
+    'assets/t9.jpeg',
+    'assets/t10.jpeg',
+    'assets/t12.jpeg',
+    'assets/t13.jpeg',
+    'assets/t14.jpeg',
+    'assets/t15.jpeg',
+    'assets/t16.jpeg',
+    'assets/t17.jpeg',
+    'assets/t18.jpeg',
+    'assets/t19.jpeg',
+    'assets/t20.jpeg',
+  ];
   String imagePath = assets[0];
   static Random random = Random();
   static int randomIndex = random.nextInt(assets.length);
+  static int randomIndexes = random.nextInt(assetz.length);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +73,7 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.only(top:10,left:3,bottom: 10),
             child: CircleAvatar(
               radius: 20,
-              backgroundImage: AssetImage(assets[randomIndex]),
+              backgroundImage: AssetImage(assets[randomIndexes]),
             ),
           ),
           backgroundColor: const Color.fromARGB(255, 4, 39, 68),
@@ -88,7 +112,7 @@ class Home extends StatelessWidget {
                                 height: size.height * 0.07,
                                 width: size.width * 0.16,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
+                                  borderRadius: BorderRadius.circular(20),
                                   // shape: BoxShape.circle
                                 ),
                                 child: CircleAvatar(
