@@ -52,7 +52,7 @@ android {
         applicationId "com.quotes.lucifer"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
+        versionCode 6
         versionName flutterVersionName
     }
 
