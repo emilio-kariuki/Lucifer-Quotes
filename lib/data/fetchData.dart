@@ -14,7 +14,7 @@ class RemoteServices {
       Fluttertoast.showToast(
           msg: "Information fetched successfully",
           toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
+          gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
           backgroundColor: Color.fromARGB(255, 9, 196, 43),
           textColor: Colors.white,
