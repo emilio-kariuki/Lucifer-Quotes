@@ -13,7 +13,7 @@ class MyController extends GetxController {
     fetchProducts();
   }
 
-  void fetchProducts() async {
+  fetchProducts() async {
     try {
       isLoading(true);
       var products = await RemoteServices.fetchData();
@@ -21,7 +21,7 @@ class MyController extends GetxController {
     } catch (e) {
       print(e);
     } finally {
-       isLoading(false);
+      isLoading(false);
     }
   }
 
