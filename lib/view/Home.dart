@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
       // ignore: unnecessary_brace_in_string_interps
       appBar: AppBar(
           leading: Padding(
-            padding: const EdgeInsets.only(top:10,left:3,bottom: 10),
+            padding: const EdgeInsets.only(top: 10, left: 3, bottom: 10),
             child: CircleAvatar(
               radius: 20,
               backgroundImage: AssetImage(assets[randomIndex]),
@@ -60,63 +60,86 @@ class Home extends StatelessWidget {
           child: GetX<MyController>(builder: (controller) {
             return Visibility(
               visible: controller.isLoading.value,
-              child:  Center(child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: JumpingDotsProgressIndicator(
-                  milliseconds: 200,
-                  numberOfDots: 4,
-                  dotSpacing: 5,
-                  color: Colors.white,
-                fontSize: 40.0,
-            ),
-              ),),
-              replacement: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.builder(
-                    itemCount: controller.product.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 214, 207, 207),
-                              borderRadius: BorderRadius.circular(20),
-                              border:
-                                  Border.all(color: Colors.black, width: 1)),
-                          child: ListTile(
-                              leading: Container(
-                                height: size.height * 0.07,
-                                width: size.width * 0.16,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  // shape: BoxShape.circle
-                                ),
-                                child: CircleAvatar(
-                                  radius: 55,
-                                  backgroundImage:
-                                      AssetImage(assets[randomIndex]),
-                                ),
-                              ),
-                              // ignore: unnecessary_string_interpolations
-                              title: Center(
-                                  child: Padding(
-                                padding: const EdgeInsets.only(top: 5),
-                                child: Text(controller.product[index].quote),
-                              )),
-                              subtitle: Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 6),
-                                  child: Text(
-                                      controller.product[index].author,
-                                      style: GoogleFonts.roboto(
-                                          color: Color.fromARGB(255, 75, 74, 74),
-                                          fontSize: 16)),
-                                ),
-                              )),
-                        ),
-                      );
-                    }),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: JumpingDotsProgressIndicator(
+                    milliseconds: 200,
+                    numberOfDots: 4,
+                    dotSpacing: 5,
+                    color: Colors.white,
+                    fontSize: 40.0,
+                  ),
+                ),
               ),
+              replacement: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: controller.product.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: size.width,
+                      height: size.height * 0.18,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 3, vertical: 3),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 10),
+                          Image.asset(
+                            "assets/quote.jpg",
+                            fit: BoxFit.fill,
+                            height: 15,
+                            width: 20,
+                          ),
+                          Expanded(
+                              child: Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: size.width * 0.7,
+                                  child: Text(
+                                    controller.product[index].quote,
+                                    textAlign: TextAlign.right,
+                                    style: GoogleFonts.roboto(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 15),
+                                SizedBox(
+                                  width: 70,
+                                  height: 100,
+                                  child: CircleAvatar(
+                                    backgroundImage:
+                                        Image.asset(assets[randomIndex]).image,
+                                  ),
+                                )
+                              ],
+                            ),
+                          )),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Text(
+                              controller.product[index].author,
+                              style: GoogleFonts.robotoCondensed(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
             );
           }),
         ),
